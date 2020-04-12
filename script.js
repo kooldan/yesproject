@@ -28,7 +28,7 @@ let posts = [
 
 let elem = document.querySelector(".main");
 for (let i = 0; i < posts.length; i++) {
-	elem.innerHTML += '<div id="e'+i+'" class="card mb-3" style="max-width: 18rem;"><div class="card-body"><h5 id="card-title" class="card-title">'+posts[i].postTitle+'</h5><p id="card-text" class="card-text">'+posts[i].post+'</p></div><div id="card-footer" class="card-footer" style="color:#f67bad">От '+posts[i].user+'<button type="button" class="btn btn-warning btn-round" style="padding: 5px 6px; border-radius:30px; float:right;margin-bottom:auto;"><i class="tim-icons icon-heart-2"></i></button></div></div>'
+	elem.innerHTML += '<div id="e'+i+'" class="card mb-3" style="max-width: 18rem;"><div class="card-body"><h5 id="card-title" class="card-title">'+posts[i].postTitle+'</h5><p id="card-text" class="card-text">'+posts[i].post+'</p></div><div id="card-footer" class="card-footer" style="color:#f67bad">От '+posts[i].user+'<button type="button" class="btn btn-warning btn-round" onclick="like(this)" style="padding: 5px 6px; border-radius:30px; float: right; margin-bottom:auto;"><i class="tim-icons icon-heart-2"></i></button></div></div>'
 }
 
 let sel = document.querySelector(".demo__card-cont");
@@ -45,7 +45,7 @@ let message = document.getElementById("message");
 function addpost(){
 	if(postInput.value != "" && postTitleInput.value != "" && userInput.value != ""){
 		posts.push({post:postInput.value, postTitle:postTitleInput.value, user:userInput.value});
-		elem.innerHTML += '<div id="e'+posts.length+'" class="card mb-3" style="max-width: 18rem;"><div class="card-body"><h5 id="card-title" class="card-title">'+postTitleInput.value+'</h5><p id="card-text" class="card-text">'+postInput.value+'</p></div><div id="card-footer" class="card-footer">От '+userInput.value+'<button type="button" class="btn btn-warning btn-round" style="padding: 5px 6px; border-radius:30px; float:right;margin-bottom:auto"><i class="tim-icons icon-heart-2"></i></button></div></div>';
+		elem.innerHTML += '<div id="e'+posts.length+'" class="card mb-3" style="max-width: 18rem;"><div class="card-body"><h5 id="card-title" class="card-title">'+postTitleInput.value+'</h5><p id="card-text" class="card-text">'+postInput.value+'</p></div><div id="card-footer" class="card-footer">От '+userInput.value+'<button type="button" onclick="like(this);" class="btn btn-warning btn-round" style="padding: 5px 6px; border-radius:30px; float:right;margin-bottom:auto"><i class="tim-icons icon-heart-2"></i></button></div></div>';
 		sel.innerHTML += '<div id="f'+posts.length+'" class="demo__card below"><div class="demo__card__top"><input class="f" type="hidden" value="'+posts.length+'"><div class="demo__card__img"></div><p class="demo__card__name">'+userInput.value+'</p></div><div class="demo__card__btm"><p class="demo__card__we">'+postTitleInput.value+'</p></div><div class="demo__card__choice m--reject"></div><div class="demo__card__choice m--like"></div><div class="demo__card__drag"></div></div>'
 		postInput.value = "";
 		postTitleInput.value = "";
@@ -54,6 +54,14 @@ function addpost(){
 	}
 	else{
 		message.innerHTML = "<p class='text-danger mb-0 mt-2'>Одно из ваших полей пустое</p>";
+	}
+}
+function like(but) {
+	if(but.style.color == ""){
+		but.style.color = "red";
+	}
+	else{
+		but.style.color = "";
 	}
 }
 /*let file = JSON.parse(fs.readFileSync('data.js', 'utf-8'));
