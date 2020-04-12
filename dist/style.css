@@ -1,0 +1,203 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.demo {
+  height: 46rem;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10%;
+  border: dotted #00f2c3 2px;
+}
+.demo__header {
+  height: 6rem;
+  background: #002942;
+}
+.demo__content {
+  overflow: hidden;
+  position: relative;
+  height: 46rem;
+  padding-top: 4.5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.demo__card-cont {
+  position: relative;
+  width: 32rem;
+  height: 32rem;
+  margin: 0 auto;
+}
+.demo__card {
+  border-radius: 5%;
+  overflow: hidden;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+}
+.demo__card.reset {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform: translateX(0) !important;
+          transform: translateX(0) !important;
+}
+.demo__card.reset .demo__card__choice {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 0 !important;
+}
+.demo__card.inactive {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.demo__card.to-left {
+  -webkit-transform: translateX(-40rem) rotate(0deg) !important;
+          transform: translateX(-40rem) rotate(0deg) !important;
+}
+.demo__card.to-right {
+  -webkit-transform: translate(40rem) rotate(0deg) !important;
+          transform: translate(40rem) rotate(0deg) !important;
+}
+.demo__card.below {
+  z-index: 1;
+}
+.demo__card__top {
+  height: 20.5rem;
+  padding-top: 4rem;
+}
+.demo__card__top.purple {
+  background: #7132B9;
+}
+.demo__card__top.blue {
+  background: #248CB6;
+}
+.demo__card__top.indigo {
+  background: #303F9F;
+}
+.demo__card__top.cyan {
+  background: #26C6DA;
+}
+.demo__card__top.lime {
+  background: #AFB42B;
+}
+.demo__card__top.brown {
+  background: #795548;
+}
+.demo__card__img {
+  overflow: hidden;
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  border: 0.5rem solid #ffffff;
+  background-image: url("http://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg");
+  background-size: cover;
+}
+.demo__card__name {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+.demo__card__btm {
+  height: 11.5rem;
+  background: #FFFFFF;
+  padding: 1.7rem;
+  padding-top: 0.6rem;
+}
+.demo__card__we{
+  color:black;
+  text-align: center;
+  font-size: 1.4rem;
+  word-wrap: break-word;
+}
+.demo__card__choice {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.demo__card__choice:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin-left: -1rem;
+  color: #fff;
+  border-radius: 50%;
+}
+.demo__card__choice:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4rem;
+  height: 1.5rem;
+  margin-left: -2rem;
+  border: 0.6rem solid #fff;
+  border-bottom: none;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+.ex.m--reject {
+  background: #fd5d93;
+  width: 3rem;
+  height: 32rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.ex.m--like {
+  background: #00f2c3;
+  width: 3rem;
+  height: 32rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+.demo__card__choice.m--reject {
+  background: #fd5d93;
+  width: none;
+}
+.demo__card__choice.m--like {
+  background: #00f2c3;
+  width: none;
+}
+.demo__card__choice.m--like:after {
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+.demo__card__drag {
+  z-index: 5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 95%;
+  height: 100%;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.demo__tip {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 0 auto;
+  margin-top: 2.5rem;
+}
+.card_like{
+  background: #00a686;
+}
+.card_dislike{
+  background: #c24871;
+}
